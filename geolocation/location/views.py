@@ -19,10 +19,6 @@ Tareas pendientes en este codigo:
 
 def index(request):
 
-    # ip
-    # ip      = requests.get('https://api.ipify.org?format=json')
-    # ip_data = json.loads(ip.text)
-    # print(ip_data)
 
     # Geolocation
     res = requests.get('http://ip-api.com/json/')
