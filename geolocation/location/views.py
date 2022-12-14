@@ -24,7 +24,7 @@ def index(request):
     res = requests.get('http://ip-api.com/json/')
     location_data_one   = res.text
     location_data       = json.loads(location_data_one)
-    print(location_data)
+    #print(location_data)
 
     # Api pronostico simplificado
     url_api_pronostico = 'http://siata.gov.co:8089/pronosticoMunicipiosSimplificado/63882184869634ff91bcf727d3fa210ec6c210bf/'
@@ -32,7 +32,13 @@ def index(request):
     api_pronostico = requests.get(url_api_pronostico)
     data_format_text = api_pronostico.text
     api_format_json = json.loads(data_format_text)
-    print(api_format_json)
-
+    #print(api_format_json)
+    print(type(api_format_json))
+    
+    ##### pruebas
 
     return render(request, 'index.html', {'data': location_data})
+
+
+def geoposition(request):
+    return render(request, 'geolocation.html')
