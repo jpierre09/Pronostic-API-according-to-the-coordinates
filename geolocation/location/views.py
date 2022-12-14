@@ -18,6 +18,21 @@ Tareas pendientes en este codigo:
 
 '''
 
+# Function that captures data (Coordenates) from browser 
+@csrf_exempt
+def geoposition(request):
+    
+    if request.method == 'POST':
+    # obtener el valor de la variable enviada desde JavaScript
+        getlat = request.POST['sendlat']
+        getlong = request.POST['sendlong']
+        print(getlat)
+        print(getlong)
+    return render(request, 'geolocation.html')
+
+
+
+# Brings data from pronostic API and proccess the current format
 def index(request):
 
 
@@ -34,21 +49,10 @@ def index(request):
     data_format_text = api_pronostico.text
     api_format_json = json.loads(data_format_text)
     #print(api_format_json)
-    print(type(api_format_json))
+    #print(type(api_format_json))
     
-    ##### pruebas
-
     return render(request, 'index.html', {'data': location_data})
 
-@csrf_exempt
-def geoposition(request):
-    
-    if request.method == 'POST':
-    # obtener el valor de la variable enviada desde JavaScript
-        getlat = request.POST['sendlat']
-        getlong = request.POST['sendlong']
-        print(getlat)
-        print(getlong)
-    return render(request, 'geolocation.html')
+
 
 
