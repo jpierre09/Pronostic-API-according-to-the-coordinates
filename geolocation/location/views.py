@@ -8,14 +8,13 @@ from django.views.decorators.csrf import csrf_exempt
 '''
 Tareas pendientes en este codigo:
 
+0. Investigar como enviar los datos al front (SOLVED)
+
 1. Filtros para tomar las coordenadas y/o codigo postal y extraer el pronostico de la api
 
 2. Implementar las 3 apis pronostico, calidad aire y temperatura
 
 3. Implementar secrets.jon para agregar credenciales, url quemadas
-
-4. Investigar como enviar los datos al front
-
 '''
 
 # Function that captures data (Coordenates) from browser 
