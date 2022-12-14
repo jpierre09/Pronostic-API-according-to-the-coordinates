@@ -1,6 +1,7 @@
 from django.shortcuts import render
 import requests
 import json
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
@@ -39,6 +40,15 @@ def index(request):
 
     return render(request, 'index.html', {'data': location_data})
 
-
+@csrf_exempt
 def geoposition(request):
+    
+    if request.method == 'POST':
+    # obtener el valor de la variable enviada desde JavaScript
+        getlat = request.POST['sendlat']
+        getlong = request.POST['sendlong']
+        print(getlat)
+        print(getlong)
     return render(request, 'geolocation.html')
+
+
