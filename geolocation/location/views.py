@@ -42,13 +42,32 @@ def index(request):
     #print(location_data)
 
     # Api pronostico simplificado
-    url_api_pronostico = 'http://siata.gov.co:8089/pronosticoMunicipiosSimplificado/63882184869634ff91bcf727d3fa210ec6c210bf/'
+    #url_api_pronostico  =    'http://siata.gov.co:8089/pronosticoMunicipiosSimplificado/63882184869634ff91bcf727d3fa210ec6c210bf/'
+    url_api_pronostico  =   'http://siata.gov.co:8089/pronosticoMunicipios/63882184869634ff91bcf727d3fa210ec6c210bf/?=format?json'
 
     api_pronostico = requests.get(url_api_pronostico)
     data_format_text = api_pronostico.text
     api_format_json = json.loads(data_format_text)
-    #print(api_format_json)
-    #print(type(api_format_json))
+    print(api_format_json)
+    print(type(api_format_json))
+
+
+
+    # Those are the json that brint pronostic
+    pronosticoMunicipioArray = {" Barbosa ": "/var/www/data/siata_app/wrfbarbosa.json",
+                                    "Barbosa": "/var/www/data/siata_app/wrfbarbosa.json",
+                                    "Girardota": "/var/www/data/siata_app/wrfgirardota.json",
+                                    "Copacabana": "/var/www/data/siata_app/wrfcopacabana.json",
+                                    "Bello": "/var/www/data/siata_app/wrfbello.json",
+                                    "Medellin Centro": "/var/www/data/siata_app/wrfmedCentro.json",
+                                    "Santa Elena": "/var/www/data/siata_app/wrfmedOriente.json",
+                                    "Medellin Occidente": "/var/www/data/siata_app/wrfmedOccidente.json",
+                                    "Itag": "/var/www/data/siata_app/wrfitagui.json",
+                                    "Envigado": "/var/www/data/siata_app/wrfenvigado.json",
+                                    "Sabaneta": "/var/www/data/siata_app/wrfsabaneta.json",
+                                    "Caldas": "/var/www/data/siata_app/wrfcaldas.json",
+                                    "Palmitas": "/var/www/data/siata_app/wrfpalmitas.json",
+                                    "La Estrella": "/var/www/data/siata_app/wrflaestrella.json"}
     
     return render(request, 'index.html', {'data': location_data})
 
