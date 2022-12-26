@@ -31,6 +31,7 @@ def geoposition(request):
 
 
 
+
 # Brings data from pronostic API and proccess the current format
 def index(request):
 
